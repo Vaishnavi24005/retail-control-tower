@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Retail Control Tower</title><link rel="stylesheet" href="style.css"><script defer src="data.js"></script><script defer src="dashboard.js"></script></head>
+<body><header><div class="wrap"><div class="label">SUPPLY CHAIN OPERATIONS</div><h1>Retail Control Tower</h1><p id="asof"></p></div></header>
+<main class="wrap">
+<section class="metrics" aria-label="Key indicators">
+<div><span>Units on hand</span><strong id="stock"></strong></div>
+<div><span>Delivered on time</span><strong id="ontime"></strong></div>
+<div><span>Observed stock-out rate</span><strong id="stockout"></strong></div>
+<div><span>Forecast holdout WAPE</span><strong id="wape"></strong></div>
+</section>
+<section class="card"><h2>Inventory and supplier performance</h2><div class="scroll"><table>
+<thead><tr><th>Product</th><th>Supplier</th><th>On hand</th><th>7-day demand</th><th>Days of inventory</th><th>Mean lead time</th><th>On time</th></tr></thead>
+<tbody id="products"></tbody></table></div></section>
+<div class="split"><section class="card"><h2>Supplier delay scenario</h2><p>Projected lost units over 14 days.</p>
+<label>Inbound delay <strong id="delay-output">7 days</strong><input id="delay" type="range" min="0" max="7" value="7"></label>
+<div class="scroll"><table><thead><tr><th>Product</th><th>Unmet units</th><th>Extra vs. baseline</th><th>First short day</th></tr></thead><tbody id="scenarios"></tbody></table></div></section>
+<section class="card"><h2>Open alerts</h2><ul id="alerts"></ul></section></div>
+<footer>Simulated inventory, demand, and supplier feeds. Baseline assumes inbound arrives on schedule. All times use UTC.</footer>
+</main></body></html>
