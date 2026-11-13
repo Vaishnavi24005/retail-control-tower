@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: tower
+      POSTGRES_USER: tower
+      POSTGRES_PASSWORD: ${TOWER_DB_PASSWORD:?Set TOWER_DB_PASSWORD}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - tower_db:/var/lib/postgresql/data
+volumes:
+  tower_db:
